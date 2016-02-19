@@ -49,7 +49,20 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+		//Redirect based on url name 
+		$url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+		if(strpos($url, "admin")!==false)
+		{
+			$this->redirect("register/view");
+		}
+		else
+		{
+			$this->redirect("register/create");
+		}
+	
+	
+	
+        //return $this->render('index');
     }
 
     public function actionLogin()

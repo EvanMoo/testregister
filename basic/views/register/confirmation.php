@@ -1,3 +1,3 @@
 <?php
-	echo "Data Registered";
+	echo "Your has data registered";
 ?>

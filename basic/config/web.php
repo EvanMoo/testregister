@@ -39,19 +39,17 @@ $config = [
         ],
         'db' => require(__DIR__ . '/db.php'),
     
-       // 'urlManager' => [
-            //'enablePrettyUrl' => true,
-            //'showScriptName' => false,
-            //'rules' => 
-			//[
-            //],
-        //],
+        'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
 	
        
     ],
     'params' => $params,
 ];
 
+/*
 if (YII_ENV_DEV) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
@@ -63,6 +61,6 @@ if (YII_ENV_DEV) {
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
     ];
-}
+}*/
 
 return $config;

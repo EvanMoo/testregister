@@ -5,20 +5,22 @@ use Yii;
 use app\models\Register;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\data\ActiveDataProvider;
 
 class RegisterController extends Controller
 {
     public function actionView()
-    {
-        $model = Register::findAll(null);
-        if ($model === null) 
-		{
-            throw new NotFoundHttpException;
-        }
-
-        return $this->render('view', [
-            'model' => $model,
-        ]);
+    {	
+		$dataProvider = new ActiveDataProvider(
+		[
+            'query' => Register::find()->orderBy('dateCreation DESC'),
+            'pagination' => 
+			[
+                'pageSize' => 5,
+            ],
+		]);
+			
+		return $this->render('view', ['registerDataProvider' => $dataProvider]); 
     }
 
     public function actionCreate()
